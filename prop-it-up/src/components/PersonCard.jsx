@@ -2,28 +2,25 @@ import React, { Component } from 'react';
 
 
 class PersonCard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            age: this.props.age
+        };
+    }
+    increaseAge= ()=>{
+        this.setState({
+            age:this.state.age +1
+        })
+    }
     render() {
         return <div>
             <div>
-                <h1>Mae, Sally</h1>
-                <p>Age:100</p>
-                <p>Hair Color: Green</p>
+                <h1>{this.props.name}</h1>
+                <p>Age:{this.state.age}</p>
+                <p>Hair Color:{this.props.haircolor}</p>
             </div>
-            <div>
-                <h1>Holly, Jane</h1>
-                <p>Age:40</p>
-                <p>Hair Color: Green</p>
-            </div>
-            <div>
-                <h1>Ray, Millard</h1>
-                <p>Age:55</p>
-                <p>Hair Color: Green</p>
-            </div>
-            <div>
-                <h1>Smith, Marla</h1>
-                <p>Age:25</p>
-                <p>Hair Color: Green</p>
-            </div>
+            <button onClick={this.increaseAge}>Birthday Button for {this.props.name}</button>
         </div>;
     }
 }
